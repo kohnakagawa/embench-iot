@@ -76,7 +76,7 @@ static int benchmark_body (int  rpt);
 void
 warm_caches (int  heat)
 {
-  int  res = benchmark_body (heat);
+  benchmark_body (heat);
 
   return;
 }
@@ -171,7 +171,7 @@ initialise_benchmark ()
 int
 verify_benchmark (int unused)
 {
-  int i, j;
+  UNUSED_VAR(unused);
   matrix exp = {
     {291018000, 315000075, 279049970, 205074215, 382719905,
      302595865, 348060915, 308986330, 343160760, 307099935,

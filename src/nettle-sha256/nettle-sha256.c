@@ -451,7 +451,7 @@ static int benchmark_body (int  rpt);
 void
 warm_caches (int  heat)
 {
-  int  res = benchmark_body (heat);
+  benchmark_body (heat);
 
   return;
 }

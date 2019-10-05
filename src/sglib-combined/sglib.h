@@ -100,6 +100,7 @@
   int   _startStack_[64]; \
   int   _endStack_[64];\
   type  _tmp_;\
+  UNUSED_VAR(_tmp_);\
   _startStack_[0] = 0;\
   _endStack_[0] = (max);\
   _stacki_ = 1;\
@@ -402,6 +403,7 @@
 
 #define SGLIB_LIST_LEN(type, list, next, result) {\
   type *_ce_;\
+  UNUSED_VAR(_ce_);\
   (result) = 0;\
   SGLIB_LIST_MAP_ON_ELEMENTS(type, list, _ce_, next, (result)++);\
 }
@@ -656,7 +658,7 @@
 }
 
 #define SGLIB_DL_LIST_SORT(type, list, comparator, previous, next) {\
-  type *_dll_, *_dlp_, *_dlt_;\
+  type *_dll_;\
   _dll_ = (list);\
   if (_dll_ != NULL) {\
     for(; _dll_->previous!=NULL; _dll_=_dll_->previous) ;\
@@ -745,6 +747,7 @@
   type *_cn_;\
   int _pathi_;\
   type *iteratedVariable;\
+  UNUSED_VAR(iteratedVariable);\
   _cn_ = (tree);\
   _pathi_ = 0;\
   while (_cn_!=NULL) {\
@@ -1452,6 +1455,8 @@ http://www.cis.ohio-state.edu/~gurari/course/cis680/cis680Ch11.html
 
 #define SGLIB___RBTREE_FIX_INSERTION_DISCREPANCY(type, tree, leftt, rightt, bits, RED, BLACK) {\
   type *t, *tl, *a, *b, *c, *ar, *bl, *br, *cl, *cr;\
+  UNUSED_VAR(ar);\
+  UNUSED_VAR(bl);\
   t = *tree;\
   tl = t->leftt;\
   if (t->rightt!=NULL && SGLIB___GET_VALUE(t->rightt->bits)==RED) {\
@@ -1491,6 +1496,7 @@ http://www.cis.ohio-state.edu/~gurari/course/cis680/cis680Ch11.html
 
 #define SGLIB___RBTREE_FIX_DELETION_DISCREPANCY(type, tree, leftt, rightt, bits, RED, BLACK, res) {\
   type  *t, *a, *b, *c, *d, *ar, *bl, *br, *cl, *cr, *dl, *dr;\
+  UNUSED_VAR(ar);\
   t = a = *tree;\
   assert(t!=NULL);\
   ar = a->rightt;\
@@ -1770,6 +1776,7 @@ int sglib_##type##_add_if_not_member(type **tree, type *elem, type **memb) {\
 int sglib_##type##_len(type *t) {\
     int   n;\
     type  *e;\
+    UNUSED_VAR(e);\
     n = 0;\
     SGLIB_BIN_TREE_MAP_ON_ELEMENTS(type, t, e, left, right, n++);\
     return(n);\
@@ -1777,6 +1784,7 @@ int sglib_##type##_len(type *t) {\
 \
 void sglib__##type##_it_compute_current_elem(struct sglib_##type##_iterator *it) {\
     int   i,j,cmp;\
+    UNUSED_VAR(cmp);\
     type  *s, *eqt;\
     int   (*subcomparator)(type *, type *);\
     eqt = it->equalto;\

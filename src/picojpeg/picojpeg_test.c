@@ -105,6 +105,7 @@ pjpeg_need_bytes_callback (unsigned char *pBuf,
 			   unsigned char *pBytes_actually_read,
 			   void *pCallback_data)
 {
+  UNUSED_VAR(pCallback_data);
   unsigned n = MIN (sizeof (jpeg_data) - jpeg_off, buf_size);
 
   memcpy (pBuf, &jpeg_data[jpeg_off], n);
@@ -167,7 +168,7 @@ static int benchmark_body (int  rpt);
 void
 warm_caches (int  heat)
 {
-  int  res = benchmark_body (heat);
+  benchmark_body (heat);
 
   return;
 }

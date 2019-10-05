@@ -69,7 +69,7 @@ static int benchmark_body (int  rpt);
 void
 warm_caches (int  heat)
 {
-  int  res = benchmark_body (heat);
+  benchmark_body (heat);
 
   return;
 }
@@ -202,6 +202,7 @@ RandomInteger ()
 int
 verify_benchmark (int unused)
 {
+  UNUSED_VAR(unused);
   double expSumA = 4999.00247066090196;
   double expSumB = 4996.84311303273534;
   double expCoef = 0.999900054853619324;

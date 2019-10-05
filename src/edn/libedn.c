@@ -192,7 +192,8 @@ codebook (long int mask, long int bitchanged, long int numbasis,
  */
 {
   long int j;
-
+  UNUSED_VAR(mask); UNUSED_VAR(codeword); UNUSED_VAR(d);
+  UNUSED_VAR(ddim); UNUSED_VAR(theta);
 
   /*
    * Remove along with the code below.
@@ -283,7 +284,7 @@ static int benchmark_body (int  rpt);
 void
 warm_caches (int  heat)
 {
-  int  res = benchmark_body (heat);
+  benchmark_body (heat);
 
   return;
 }
@@ -385,6 +386,7 @@ benchmark_body (int rpt)
 int
 verify_benchmark (int unused)
 {
+  UNUSED_VAR(unused);
   long int exp_output[200] =
     { 3760, 4269, 3126, 1030, 2453, -4601, 1981, -1056, 2621, 4269,
     3058, 1030, 2378, -4601, 1902, -1056, 2548, 4269, 2988, 1030,

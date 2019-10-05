@@ -894,24 +894,30 @@ TestingPathological (long index, long total)
 long
 TestingRandom (long index, long total)
 {
+  UNUSED_VAR(index);
+  UNUSED_VAR(total);
   return rand_beebs ();
 }
 
 long
 TestingMostlyDescending (long index, long total)
 {
+  UNUSED_VAR(total);
   return total - index + rand_beebs () * 1.0 / RAND_MAX * 5 - 2.5;
 }
 
 long
 TestingMostlyAscending (long index, long total)
 {
+  UNUSED_VAR(total);
   return index + rand_beebs () * 1.0 / RAND_MAX * 5 - 2.5;
 }
 
 long
 TestingAscending (long index, long total)
 {
+  UNUSED_VAR(index);
+  UNUSED_VAR(total);
   return index;
 }
 
@@ -924,18 +930,24 @@ TestingDescending (long index, long total)
 long
 TestingEqual (long index, long total)
 {
+  UNUSED_VAR(index);
+  UNUSED_VAR(total);
   return 1000;
 }
 
 long
 TestingJittered (long index, long total)
 {
+  UNUSED_VAR(index);
+  UNUSED_VAR(total);
   return (rand_beebs () * 1.0 / RAND_MAX <= 0.9) ? index : (index - 2);
 }
 
 long
 TestingMostlyEqual (long index, long total)
 {
+  UNUSED_VAR(index);
+  UNUSED_VAR(total);
   return 1000L + (long) (rand_beebs () % 4);
 }
 
@@ -1047,7 +1059,7 @@ static int benchmark_body (int  rpt);
 void
 warm_caches (int  heat)
 {
-  int  res = benchmark_body (heat);
+  benchmark_body (heat);
 
   return;
 }

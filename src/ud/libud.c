@@ -134,7 +134,7 @@ static int benchmark_body (int  rpt);
 void
 warm_caches (int  heat)
 {
-  int  res = benchmark_body (heat);
+  benchmark_body (heat);
 
   return;
 }
@@ -183,6 +183,7 @@ benchmark_body (int rpt)
 
 int ludcmp(int nmax, int n)
 {
+  UNUSED_VAR(nmax);
   int i, j, k;
   long w, y[100];
 

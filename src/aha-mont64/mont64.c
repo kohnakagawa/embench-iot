@@ -205,7 +205,7 @@ static int benchmark_body (int  rpt);
 void
 warm_caches (int  heat)
 {
-  int  res = benchmark_body (heat);
+  benchmark_body (heat);
 
   return;
 }
@@ -222,7 +222,7 @@ static int __attribute__ ((noinline))
 benchmark_body (int rpt)
 {
   int i;
-  int errors;
+  int errors = 0;
 
   for (i = 0; i < rpt; i++)
     {

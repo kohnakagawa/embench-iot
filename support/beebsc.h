@@ -32,6 +32,8 @@
 
 #define assert_beebs(expr) { if (!(expr)) exit (1); }
 
+#define UNUSED_VAR(x) ((void)(x))
+
 /* Local simplified versions of library functions */
 
 int rand_beebs (void);

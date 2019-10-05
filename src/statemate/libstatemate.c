@@ -1436,7 +1436,7 @@ static int benchmark_body (int  rpt);
 void
 warm_caches (int  heat)
 {
-  int  res = benchmark_body (heat);
+  benchmark_body (heat);
 
   return;
 }
@@ -1474,6 +1474,7 @@ initialise_benchmark ()
 int
 verify_benchmark (int unused)
 {
+  UNUSED_VAR(unused);
   char expected[64] = {
     0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
       0, 0, 0, 0, 0, 0, 0,

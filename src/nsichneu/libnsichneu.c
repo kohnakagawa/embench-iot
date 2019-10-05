@@ -76,7 +76,7 @@ static int benchmark_body (int  rpt);
 void
 warm_caches (int  heat)
 {
-  int  res = benchmark_body (heat);
+  benchmark_body (heat);
 
   return;
 }
@@ -4536,6 +4536,7 @@ benchmark_body (int rpt)
 int
 verify_benchmark (int unused)
 {
+  UNUSED_VAR(unused);
   int expP1_is_marked = 3;
   long expP1_marking_member_0[3] = { 0, 0, 0 };
   int expP2_is_marked = 5;
