@@ -177,6 +177,7 @@ benchmark (void)
   return benchmark_body (LOCAL_SCALE_FACTOR * CPU_MHZ);
 }
 
+static double total_energy = 0.0;
 
 static int __attribute__ ((noinline))
 benchmark_body (int rpt)
@@ -188,8 +189,10 @@ benchmark_body (int rpt)
       int i;
       offset_momentum (solar_bodies, BODIES_SIZE);
       /*printf("%.9f\n", bodies_energy(solar_bodies, BODIES_SIZE)); */
+      double e = 0.0;
       for (i = 0; i < 100; ++i)
-	bodies_energy (solar_bodies, BODIES_SIZE);
+	e += bodies_energy (solar_bodies, BODIES_SIZE);
+      total_energy = e;
       /*printf("%.9f\n", bodies_energy(solar_bodies, BODIES_SIZE)); */
     }
   return 0;
@@ -211,6 +214,12 @@ verify_benchmark (int unused)
   //    printf("\n");
   // }
   // printf("};\n");
+
+  const double exp_total_energy = -16.907516382852478;
+  if (abs(total_energy - exp_total_energy) > 1.0e-13) {
+    return 0;
+  }
+
   static struct body expected[] = {
     {
      .x = {0, 0, 0},
