@@ -119,6 +119,7 @@ static struct body solar_bodies[] = {
 static const int BODIES_SIZE =
   sizeof (solar_bodies) / sizeof (solar_bodies[0]);
 
+__attribute__((noinline))
 void
 offset_momentum (struct body *bodies, unsigned int nbodies)
 {
@@ -129,6 +130,7 @@ offset_momentum (struct body *bodies, unsigned int nbodies)
 }
 
 
+__attribute__((noinline))
 double
 bodies_energy (struct body *bodies, unsigned int nbodies)
 {
